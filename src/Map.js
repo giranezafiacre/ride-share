@@ -43,7 +43,7 @@ const Map = ({ stops }) => {
         } else {
           // Render white dots for other stops
           new window.google.maps.Circle({
-            strokeColor: 'white',
+            strokeColor: 'black',
             strokeOpacity: 6,
             strokeWeight: 9,
             fillColor: '#FFFFFF',
