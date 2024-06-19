@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function getNameFromCoordinates(latitude, longitude) {
+async function getNameFromCoordinates(latitude, longitude) {
     // Replace 'YOUR_API_KEY' with your actual Google Maps API key
     const apiKey = process.env.REACT_APP_MAP_API_KEY;
     const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
@@ -70,7 +70,7 @@ const RealTimeTracking = ({ stops }) => {
     const averageDrivingSpeed = 50; // Average driving speed in km/h
 
     useEffect(() => {
-        const watchId = navigator.geolocation.watchPosition(
+        const watchId = navigator.geolocation?.watchPosition(
             (position) => {
                 setCurrentLocation({
                     lat: position.coords.latitude,
@@ -81,10 +81,10 @@ const RealTimeTracking = ({ stops }) => {
                 console.error('Error getting location:', error);
                 setCurrentLocation(null); // Reset currentLocation if there's an error
             },
-            { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+            { enableHighAccuracy: true, timeout: 2000, maximumAge: 1000 }
         );
 
-        return () => navigator.geolocation.clearWatch(watchId);
+        return () => navigator.geolocation?.clearWatch(watchId);
     }, []);
 
     useEffect(() => {
