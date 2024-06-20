@@ -17,7 +17,7 @@ const stops = [
 const App = () => {
   return (
     <div>
-      <h1>Ride Share Tracking Fiacre1</h1>
+      <h1>Ride Share Tracking Fiacre2</h1>
       <RealTimeTracking stops={stops}  />
       <Map stops={stops} />
     </div>

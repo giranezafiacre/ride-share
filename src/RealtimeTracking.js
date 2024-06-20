@@ -70,7 +70,7 @@ const RealTimeTracking = ({ stops }) => {
     const averageDrivingSpeed = 50; // Average driving speed in km/h
 
     useEffect(() => {
-        const watchId = navigator.geolocation?.watchPosition(
+        const watchId = navigator.geolocation.watchPosition(
             (position) => {
                 setCurrentLocation({
                     lat: position.coords.latitude,
